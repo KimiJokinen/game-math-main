@@ -6,7 +6,7 @@ public class ConcreteMoveScript : MonoBehaviour
 {
     [SerializeField] private GameObject concrete;
     [SerializeField] private GameObject hook;
-    private bool isAttached = false;
+    public bool isAttached = false;
 
     void Start()
     {

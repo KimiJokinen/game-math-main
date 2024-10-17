@@ -276,6 +276,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.5
   color: {r: 1, g: 0, b: 0, a: 1}
+--- !u!1 &632858907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3862778440219913496, guid: af1ff74f51b5145458d709099a21b4f6, type: 3}
+  m_PrefabInstance: {fileID: 249946217015812840}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &632858913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632858907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 23
+  m_MaxRayIntersections: 0
 --- !u!114 &670939625 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1064534356098386809, guid: 85e1ce8fbcff6f042a34bee9779e8146, type: 3}
@@ -344,6 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   concrete: {fileID: 6023892515792707295}
   hook: {fileID: 8658184023392465618}
+  isAttached: 0
 --- !u!135 &1361980129
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -432,6 +454,37 @@ Transform:
   m_GameObject: {fileID: 1467105821}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1946936782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1946936783}
+  m_Layer: 0
+  m_Name: CenterPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1946936783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946936782}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -686,7 +739,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3862778440219913496, guid: af1ff74f51b5145458d709099a21b4f6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 632858913}
   m_SourcePrefab: {fileID: 100100000, guid: af1ff74f51b5145458d709099a21b4f6, type: 3}
 --- !u!33 &6023892515789636319
 MeshFilter:
@@ -766,6 +822,8 @@ GameObject:
   - component: {fileID: 6023892515789636319}
   - component: {fileID: 6023892515790766111}
   - component: {fileID: 6023892515792707297}
+  - component: {fileID: 6023892515792707298}
+  - component: {fileID: 6023892515792707299}
   m_Layer: 0
   m_Name: Concrete
   m_TagString: Untagged
@@ -794,6 +852,52 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.08
   m_Center: {x: 0, y: -0.12, z: 0}
+--- !u!114 &6023892515792707298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6023892515792707295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3609a9da3b0db0e4aaac077f77dd2fb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CraneConcreteAngle: 0
+  nearLimit: {fileID: 601031390}
+  farLimit: {fileID: 363527139}
+  crane: {fileID: 8658184023392300794}
+  ground: {fileID: 2031002224}
+  craneVector: {x: 0, y: 0, z: 0}
+  concreteVector: {x: 0, y: 0, z: 0}
+  trolley: {fileID: 8658184023392300784}
+  trolleyDistance: {x: 0, y: 0, z: 0}
+  trolleySlider: {fileID: 670939625}
+  cableSlider: {fileID: 1424370488}
+  centerPoint: {fileID: 1946936783}
+  hookPoint: {fileID: 1361980126}
+--- !u!65 &6023892515792707299
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6023892515792707295}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.631242, y: 1.77, z: 7.1142383}
+  m_Center: {x: 0, y: -5.49, z: 0}
 --- !u!1001 &6208831963816882321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1649,3 +1753,4 @@ SceneRoots:
   - {fileID: 8685051053018706934}
   - {fileID: 6208831963816882321}
   - {fileID: 2051171666}
+  - {fileID: 1946936783}
